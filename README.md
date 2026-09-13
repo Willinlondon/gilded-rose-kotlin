@@ -20,4 +20,6 @@ Exceptions to the standard degradation rule:
   - By 3 when there are 5 days or fewer remaining.
   - Quality drops to 0 immediately once the concert has passed.
 
+**Constraint:** The `Item` class itself, and the `items` list, must not be modified at all. All refactoring and the new feature must be implemented entirely within the `GildedRose` class. This mirrors a common real-world situation — working around a dependency you can look at but aren't allowed to change.
+
 The goal of the kata is to add a **new** item type ("Conjured" items, which degrade in quality twice as fast as normal items) without making the existing code any harder to understand than it already is — which is only realistically possible once genuine test coverage is in place first.
