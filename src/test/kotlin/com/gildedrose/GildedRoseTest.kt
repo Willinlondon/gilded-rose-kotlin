@@ -166,4 +166,15 @@ class GildedRoseTest {
 
         assertEquals(50, gildedRose.items[0].quality)
     }
+
+    @Test
+    fun `items after Sulfuras in the list still get updated`() {
+        val sulfuras = Item("Sulfuras, Hand of Ragnaros", 1, 80)
+        val agedBrie = Item("Aged Brie", 10, 40)
+        val gildedRose = GildedRose(listOf(sulfuras, agedBrie))
+
+        gildedRose.updateQuality()
+
+        assertEquals(41, gildedRose.items[1].quality)
+    }
 }
