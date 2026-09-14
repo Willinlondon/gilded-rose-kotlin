@@ -177,4 +177,24 @@ class GildedRoseTest {
 
         assertEquals(41, gildedRose.items[1].quality)
     }
+
+    @Test
+    fun `Conjured items degrade in quality by 2 per day`() {
+        val conjuredManaCake = Item("Conjured Mana Cake", 5, 49)
+        val gildedRose = GildedRose(listOf(conjuredManaCake))
+
+        gildedRose.updateQuality()
+
+        assertEquals(47, gildedRose.items[0].quality)
+    }
+
+    @Test
+    fun `Conjured items degrade in quality by 4 per day once sellin has reached 0`() {
+        val conjuredManaCake = Item("Conjured Mana Cake", 0, 30)
+        val gildedRose = GildedRose(listOf(conjuredManaCake))
+
+        gildedRose.updateQuality()
+
+        assertEquals(26, gildedRose.items[0].quality)
+    }
 }

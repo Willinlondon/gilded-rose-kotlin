@@ -22,4 +22,13 @@ Exceptions to the standard degradation rule:
 
 **Constraint:** The `Item` class itself, and the `items` list, must not be modified at all. All refactoring and the new feature must be implemented entirely within the `GildedRose` class. This mirrors a common real-world situation — working around a dependency you can look at but aren't allowed to change.
 
-The goal of the kata is to add a **new** item type ("Conjured" items, which degrade in quality twice as fast as normal items) without making the existing code any harder to understand than it already is — which is only realistically possible once genuine test coverage is in place first.
+## Conjured Items
+
+A new supplier now provides a category of item called "Conjured" — conventionally named **"Conjured Mana Cake"** in this kata's test suite. Conjured items degrade in Quality **twice as fast** as normal items:
+
+- 2 Quality per day before the sell-by date passes (double the normal rate of 1).
+- 4 Quality per day once the sell-by date has passed (double the normal post-expiry rate of 2).
+
+The existing floor of 0 still applies — Quality never goes negative, even at the doubled rate.
+
+The same constraint as before still holds: the `Item` class must not be modified. You're free to change `GildedRose` however you see fit, provided every existing test continues to pass.
